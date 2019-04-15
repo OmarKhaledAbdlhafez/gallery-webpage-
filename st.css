@@ -1,0 +1,119 @@
+body {
+  display: grid;
+  place-content: center;
+    background: #063054;
+   box-sizing: border-box;
+}
+/* nav bar code */ 
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+.bg{
+    position: absolute;
+    width: 100%;
+}
+.getright{
+    position: absolute;
+    right: 23px;
+    top: 30px;
+}
+.getright ul li {
+    margin-right: 60px;
+}
+.navlink {
+    color: white;
+    font-size: 20px;
+}
+/*--------------------------------------------------------*/
+/* the grid code */
+.waterfall {
+  width: 80vw;
+  margin: 10em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /*
+    this code line use repeat function it repeat the col as possible as continar will filland the img min size 150px and max size is 1 fr */
+  grid-gap: 1em;
+  grid-auto-flow: row dense;
+    /*fill the grid row by row and fill the holes by suit item */
+  grid-auto-rows: 10vh;
+}
+/* from 44 to 52 this he make a calculation to suit his code but it depend on the img sizes so u should put imges carefull as it size */ 
+.waterfall .item:nth-of-type(3n+1) {
+  grid-row: auto / span 3;
+}
+.waterfall .item:nth-of-type(3n+2) {
+  grid-row: auto / span 4;
+}
+.waterfall .item:nth-of-type(3n+3) {
+  grid-row: auto / span 5;
+}
+.waterfall .item {
+  overflow: hidden;
+  transform: rotate(-7.5deg);
+  filter: saturate(0) contrast(100%) brightness(100%) sepia(80%);
+  transition: transform 0.2s, border 0.1s;
+  border: 1em solid transparent;
+}
+.waterfall .item img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+    transform: rotate(15deg);
+    transition: all 0.3s;
+}
+.waterfall  .inbound {
+    transform: rotate(0);
+    filter: none;
+    border-bottom: 1px solid white;
+}
+.waterfall  .inbound img {
+          transform: rotate(0);
+}
+/* -----------------------------------------------*/
+/* the popup img code */
+.showimg{
+  z-index: 999;
+  display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+.showimg .over{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.showimg .img-show{
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.showimg span i{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 99;
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+}
+.img-show img{
+    width: 100%;
+    height: 100%;
+}
+@media only screen and (min-width: 320px) and (max-width: 479px){ 
+.showimg .img-show{
+    width: 200px;
+    height: 130px;
+    }
+}
+/* -------------------------------------------------*/ 
